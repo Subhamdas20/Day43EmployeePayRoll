@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Payroll Home Page</title>
+  <link rel="stylesheet" href="../css/Emp_Payroll_Home.css">
+
+</head>
+
+<body>
+
+  <!-- UC 1 -->
+  <header class="header">
+    <div class="logo-content">
+      <img src="../assets/images/logo.png" alt="logo">
+      <div>
+        <span class="emp-text">EMPLOYEE</span><br />
+        <span class="emp-text emp-payroll">PAYROLL</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- UC2 -->
+  <div class="main-content">
+    <div class="header-content">
+      <div class="emp-detail-text">Employee Details <div class="emp-count">10</div>
+      </div>
+      <a href="../html/Emp_Payroll_Home.html" class="add-button">
+        <img src="../assets/icons/add-24px.svg" alt="">Add User</a>
+    </div>
+  </div>
+
+  <!-- UC3 -->
+  <table id="display" class="table-main">
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>Department</th>
+      <th>Salary</th>
+      <th>Start Date</th>
+      <th>Actions</th>
+    </tr>
+    <tr>
+      <td><img class="profile" alt="" src="../assets/profile-images/Ellipse -2.png">
+      </td>
+      <td>Subham</td>
+      <td>Male</td>
+      <td>
+        <div class="dept-label">HR</div>
+        <div class="dept-label">Finance</div>
+      </td>
+      <td>3000000</td>
+      <td>1 Nov 2020</td>
+      <td>
+        <img id="1" onclick="remove(this)" alt="delete" src="../assets/icons/delete-black-18dp.svg">
+        <img id="1" alt="edit" onclick="update(this)" src="../assets/icons/create-black-18dp.svg">
+      </td>
+    </tr>
+  </table>
+  <script src="../javascript/Emp_Payroll_Home.js"></script>
+  <script src="../javascript/utility.js"></script>
+  <script src="../javascript/site_properties.js"></script>
+  <script src="../javascript/EmployeePayrollData.js"></script>
+</body>
+
+</html> 
