@@ -31,7 +31,7 @@ const createInnerHtml = () => {
 
     innerHtml = `${innerHtml}
       <tr>
-        <td><img class="profile" src="${employeePayrollData._profileImage}" alt="profile_img-1"></td>
+        <td><img class="profile" src="${employeePayrollData._profilePic}" alt="profile_img-1"></td>
         <td>${employeePayrollData._name}</td>
         <td>${employeePayrollData._gender}</td>
         <td>${getDepartmentHtml(employeePayrollData._department)}</td>
@@ -39,32 +39,32 @@ const createInnerHtml = () => {
         <td>${employeePayrollData._salary}</td>
         <td>${stringifyDate(employeePayrollData._startDate)}</td>
         <td>
-          <img id="${employeePayrollData._id}" src="../assets/icons/delete.svg" alt="delete" onclick="remove(this)">
-          <img id="${employeePayrollData._id}" src="../assets/icons/edit.svg" alt="edit" onclick="update(this)">
+          <img id="${employeePayrollData._id}" src="../assets/icons/delete-black-18dp.svg" alt="delete" onclick="remove(this)">
+          <img id="${employeePayrollData._id}" src="../assets/icons/create-black-18dp.svg" alt="edit" onclick="update(this)">
         </td>
       </tr>`;
   }
-  document.querySelector('#table-display').innerHTML = innerHtml;
+  document.querySelector('#table_display').innerHTML = innerHtml;
 };
 
-// const getDepartmentHtml = (departmentList) => {
-//   let departmentHtml = '';
-//   for (const department of departmentList) {
-//     departmentHtml = `${departmentHtml} <div class='dept-label'>${department}</div>`
-//   }
-//   return departmentHtml
-// };
+const getDepartmentHtml = (departmentList) => {
+  let departmentHtml = '';
+  for (const department of departmentList) {
+    departmentHtml = `${departmentHtml} <div class='dept-label'>${department}</div>`
+  }
+  return departmentHtml
+};
 
-// const remove = (node) => {
-//   let employeePayrollData = employeePayrollDataList.find(employeeData => employeeData._id == node.id);
-//   if (!employeePayrollData)
-//     return;
+const remove = (node) => {
+  let employeePayrollData = employeePayrollDataList.find(employeeData => employeeData._id == node._id);
+  if (!employeePayrollData)
+    return;
 
-//   const index = employeePayrollDataList
-//                 .map(employeeData => employeeData._id)
-//                 .indexOf(employeePayrollData._id);
-//   employeePayrollDataList.splice(index, 1);
-//   localStorage.setItem("EmployeePayrollList", JSON.stringify(employeePayrollDataList));
-//   document.querySelector(".emp-count").textContent = employeePayrollDataList.length;
-//   createInnerHtml();
-// };
+  const index = employeePayrollDataList
+                .map(employeeData => employeeData._id)
+                .indexOf(employeePayrollData._id);
+  employeePayrollDataList.splice(index, 1);
+  localStorage.setItem("EmployeePayrollList", JSON.stringify(employeePayrollDataList));
+  document.querySelector(".emp-count").textContent = employeePayrollDataList.length;
+  createInnerHtml();
+};
